@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PAYMENT BAKZ HOST</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+  body {
+    margin: 0; 
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+  header {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    position: relative;
+    background: #222;
+    overflow: hidden;
+    user-select: none;
+  }
+  /* Lampu warna-warni bergantian */
+  .lights {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    gap: 12px;
+    transform: translate(-50%, -50%);
+  }
+  .light {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff;
+    animation: blink 4s infinite;
+  }
+  .light:nth-child(1) { background: #ff3b3b; animation-delay: 0s; }
+  .light:nth-child(2) { background: #ffb93b; animation-delay: 0.5s; }
+  .light:nth-child(3) { background: #fff53b; animation-delay: 1s; }
+  .light:nth-child(4) { background: #3bff5b; animation-delay: 1.5s; }
+  .light:nth-child(5) { background: #3bafff; animation-delay: 2s; }
+  .light:nth-child(6) { background: #9a3bff; animation-delay: 2.5s; }
+  .light:nth-child(7) { background: #ff3be1; animation-delay: 3s; }
+  .light:nth-child(8) { background: #ff3b6b; animation-delay: 3.5s; }
+
+  @keyframes blink {
+    0%, 100% { opacity: 0.2; box-shadow: none; }
+    50% { opacity: 1; box-shadow: 0 0 15px currentColor; }
+  }
+
+  main {
+    margin-top: 40px;
+    max-width: 400px;
+    width: 90%;
+    background: #222;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00ffe7;
+    text-align: center;
+  }
+  img.profile {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00ffe7;
+    margin-bottom: 25px;
+  }
+  .payment-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+  button {
+    flex: 1;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    border: none;
+    color: white;
+    padding: 14px 0;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.3s ease;
+    user-select: none;
+  }
+  button:hover {
+    background: linear-gradient(45deg, #0072ff, #00c6ff);
+  }
+  .qr-section {
+    display: none;
+    margin-top: 20px;
+  }
+  .qr-section img.qr {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 15px #00ffe7;
+  }
+  .qr-section p {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #00ffe7;
+  }
+  .qr-section .phone {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffcc00;
+    user-select: text;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  PAYMENT BAKZ HOST
+  <div class="lights">
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+  </div>
+</header>
+
+<main>
+  <img class="profile" src="https://files.catbox.moe/vvtgus.jpg" alt="Profil Bakz Host" />
+  
+  <div class="payment-buttons">
+    <button id="btn-qris">QRIS</button>
+    <button id="btn-dana">DANA</button>
+  </div>
+  
+  <div id="qris-section" class="qr-section">
+    <img class="qr" src="https://files.catbox.moe/t8butl.jpg" alt="QRIS Payment" />
+    <p>JANGAN LUPA KIRIM BUKTI TRANSFER KE OWNER</p>
+    <p class="phone">No: 6285962823375</p>
+  </div>
+  
+  <div id="dana-section" class="qr-section">
+    <p>Nomor DANA:</p>
+    <p class="phone">088225351947</p>
+    <p>JANGAN LUPA KIRIM BUKTI TRANSFER KE OWNER</p>
+    <p class="phone">No: 6285962823375</p>
+  </div>
+</main>
+
+<script>
+  const btnQris = document.getElementById('btn-qris');
+  const btnDana = document.getElementById('btn-dana');
+  const qrisSection = document.getElementById('qris-section');
+  const danaSection = document.getElementById('dana-section');
+
+  btnQris.addEventListener('click', () => {
+    qrisSection.style.display = 'block';
+    danaSection.style.display = 'none';
+  });
+
+  btnDana.addEventListener('click', () => {
+    danaSection.style.display = 'block';
+    qrisSection.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
